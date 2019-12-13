@@ -1,26 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Loader from 'react-loader-spinner';
-import
+import {getAdvice} from '../actions';
 
 const Book = props => {
     console.log(props);
   return ( <div>
-        <h1>Bookish Folk, Find Your Next Book! 📚</h1>
-        {!props.book && !props.isFetching && <p> Find your next Read! </p>}
+        <h1>Random Advice Generator</h1>
+        {!props.advice && !props.isFetching && <p> Find me some advice! </p>}
         {props.isFetching && (<Loader type="ThreeDots" color="#somecolor" height={80} width={80} />)}
-        {props.book && <p>{props.book.preview}{props.book.thumbnail_url}</p>}
-        <button onClick={props.getBook}>New Book!</button>
+        {props.advice && <p>{props.advice}</p>}
+        <button onClick={props.getAdvice}>More Advice!</button>
     </div>
     )
 }
 
 const mapStateToProps = state => {
     return{
-        book: state.book,
+        advice: state.slip,
         isFetching: state.isFetching,
         error: state.error
     };
 };
 
-export default connect(mapStateToProps, {getBook})(Book);
+export default connect(mapStateToProps, {getAdvice})(Book);

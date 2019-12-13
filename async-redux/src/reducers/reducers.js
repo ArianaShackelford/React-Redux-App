@@ -1,11 +1,11 @@
 import {
-    FETCH_BOOK_START,
-    FETCH_BOOK_SUCCESS,
-    FETCH_BOOK_FAILURE,
+    FETCH_ADVICE_START,
+    FETCH_ADVICE_SUCCESS,
+    FETCH_ADVICE_FAILURE,
 } from '../actions';
 
 const initialState = {
-    book: null,
+    advice:'',
     isFetching: false,
     error: ''
 };
@@ -13,19 +13,23 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     console.log( action)
     switch (action.type) {
-        case FETCH_BOOK_START:
+        case FETCH_ADVICE_START:
             return{
                 ...state,
                 isFetching: true
             };
-        case FETCH_BOOK_SUCCESS:
+        case FETCH_ADVICE_SUCCESS:
                 return{
-                    ...state
-                
+                    ...state,
+                    slip: action.payload,
+                    isFetching: false,
+                    error: ``
                 };
-        case FETCH_BOOK_FAILURE:
+        case FETCH_ADVICE_FAILURE:
                 return{
-                    ...state
+                    ...state,
+                    isFetching: false,
+                    error: action.payload
                 };
         default:
             return state;

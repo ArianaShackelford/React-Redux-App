@@ -1,5 +1,6 @@
 export {
-    FETCH_BOOK_START,
-    FETCH_BOOK_SUCCESS,
-    FETCH_BOOK_FAILURE,
+    FETCH_ADVICE_START,
+    FETCH_ADVICE_SUCCESS,
+    FETCH_ADVICE_FAILURE,
+    getAdvice
 } from './bookActions';
